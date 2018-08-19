@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        {{#if articles}} {{#each articles}}
+        <div class="card w-90">
+            <div class="card-header text-white bg-dark">
+                <a href="{{link}}" target="_blank" class="text-white">
+                    <h2>{{title}}</h2>
+                </a>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    {{summary}}
+                </p>
+                <button id="{{_id}}" class="btn btn-danger save-btn">Save Article</button> {{#if byline}}&nbsp;
+                <span>
+                    <em>{{byline}}</em>
+                </span> {{/if}}
+                <br>
+                <span id="saveSuccess"></span>
+            </div>
+        </div>
+        <br> {{/each}} {{else}}
+        <div class="card text-white bg-warning w-90 p-1">
+            <div class="card-body text-center">
+                There are no new articles.
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
