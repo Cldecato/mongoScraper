@@ -2,9 +2,7 @@ $(document).ready(function() {
 
   $(".delete-btn").click(function(event) {
     event.preventDefault();
-
-    const thisId = $(this).attr("data-id");
-  
+    const thisId = $(this).attr("data");
     $.ajax(`/remove/${thisId}`, {
       type: "PUT",
     })
@@ -21,6 +19,7 @@ $(document).ready(function() {
     $.ajax(`/articles/${id}`, {
         type: "GET"
     }).then(function (data) {
+        console.log(data);
         $('.articles-available').empty();
         if (data[0].note.length > 0) {
             data[0].note.forEach(v => {
@@ -47,11 +46,12 @@ $(document).ready(function() {
     event.preventDefault();
     const id = $(this).attr('data');
     const noteText = $('#note-input').val().trim();
+    // console.log(typeof noteText);
     $('#note-input').val('');
     $.ajax(`/note/${id}`, {
         type: "POST",
         data: {
-            text: noteText
+            text: noteText,
         }
     }).then(function (data) {
         console.log(data)

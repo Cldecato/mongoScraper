@@ -2,8 +2,8 @@
     <div class="col-12">
         {{#if articles}} {{#each articles}}
         <div class="card w-90">
-            <div class="card-header text-white bg-dark">
-                <a href={{link}} target="_blank" class="text-white">
+            <div class="card-header text-dark">
+                <a href={{link}} target="_blank" class="text-dark">
                     <h2>{{title}}</h2>
                 </a>
             </div>
@@ -11,11 +11,12 @@
                 <p class="card-text">
                     {{summary}}
                 </p>
-                <button data="{{_id}}" class="btn btn-warning note-btn">Readers Notes</button>
-                <button data="{{_id}}" class="btn btn-danger delete-btn">Remove From Saved</button> {{#if byline}}&nbsp;
+                 {{#if byline}}&nbsp;
                 <span>
                     <em>{{byline}}</em>
-                </span> {{/if}}
+                </span>
+                <button data="{{_id}}" class="btn btn-danger delete-btn float-right">Remove From Saved</button>
+                <button data="{{_id}}" class="btn btn-warning note-btn float-right">Readers Notes</button> {{/if}}
             </div>
         </div>
         {{/each}} {{else}}
