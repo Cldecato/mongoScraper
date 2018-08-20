@@ -48,7 +48,7 @@ $(document).ready(function() {
     const noteText = $('#note-input').val().trim();
     // console.log(typeof noteText);
     $('#note-input').val('');
-    $.ajax(`/note/${id}`, {
+    $.ajax(`/notes`, {
         type: "POST",
         data: {
             text: noteText,
